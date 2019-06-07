@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.navigationdemo.FirstFragment"
+        android:label="layout_fragment_first"
+        tools:layout="@layout/layout_fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.navigationdemo.SecondFragment"
+        android:label="layout_fragment_second"
+        tools:layout="@layout/layout_fragment_second" >
+        <action
+                android:id="@+id/action_secondFragment_to_thirdAFragment"
+                app:destination="@id/thirdAFragment" app:popUpTo="@+id/firstFragment"/>
+        <action
+                android:id="@+id/action_secondFragment_to_thirdBFragment"
+                app:destination="@id/thirdBFragment" app:popUpTo="@+id/firstFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/thirdAFragment"
+        android:name="com.example.navigationdemo.ThirdAFragment"
+        android:label="ThirdAFragment" >
+        <action
+            android:id="@+id/action_thirdAFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdBFragment"
+        android:name="com.example.navigationdemo.ThirdBFragment"
+        android:label="ThirdBFragment" >
+        <action
+                android:id="@+id/action_thirdBFragment_to_secondFragment"
+                app:destination="@id/secondFragment"/>
+        <argument android:name="RandomNumber" app:argType="integer"/>
+    </fragment>
+    <fragment android:id="@+id/aboutFragment" android:name="com.example.navigationdemo.AboutFragment"
+              android:label="AboutFragment"/>
+</navigation>
